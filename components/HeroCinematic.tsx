@@ -34,8 +34,13 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
   const { transitionToSection } = useCurtain();
 
   return (
-    <section id="hero" className="relative bg-[#070B12] text-[#FAF8F5] pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden border-b border-[#222E42]">
+    <section id="hero" className="relative hero-stage text-[#FAF8F5] pt-12 pb-24 md:pt-20 md:pb-32 overflow-hidden border-b border-[#222E42]">
       
+      {/* A quiet legal-grid pattern gives the dark field a tactile, architectural depth. */}
+      <div className="absolute inset-0 pattern-legal-grid-dark opacity-70 pointer-events-none" aria-hidden="true" />
+      <div className="hero-stage__seal absolute -right-40 top-24 h-[34rem] w-[34rem] rotate-[18deg] pointer-events-none" aria-hidden="true" />
+      <div className="absolute top-24 right-[18%] h-px w-48 bg-gradient-to-r from-transparent via-[#D9A86C]/55 to-transparent pointer-events-none" aria-hidden="true" />
+
       {/* Ambient Multi-layer Sovereign Lighting & Gold Leaf Radial Fields */}
       <div className="absolute inset-0 bg-[radial-gradient(#C29B58_1px,transparent_1px)] [background-size:40px_40px] opacity-[0.035] pointer-events-none" />
       <div className="absolute top-0 right-1/4 w-[750px] h-[600px] bg-gradient-to-br from-[#C29B58]/14 via-[#82622B]/06 to-transparent rounded-full blur-[160px] pointer-events-none" />
@@ -52,9 +57,9 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-wrap items-center justify-between gap-3 mb-10 pb-4 border-b border-[#222E42]/80"
+          className="hero-utility-ribbon flex flex-wrap items-center justify-between gap-3 mb-10 pb-4 border-b border-[#222E42]/80"
         >
-          <div className="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#152033] via-[#0E1624] to-[#152033] border border-[#C29B58]/60 text-xs font-sans font-semibold text-[#ECCF9B] tracking-[0.2em] uppercase shadow-gold-glow">
+          <div className="hero-firm-badge inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-full bg-gradient-to-r from-[#152033] via-[#0E1624] to-[#152033] border border-[#C29B58]/60 text-xs font-sans font-semibold text-[#ECCF9B] tracking-[0.2em] uppercase shadow-gold-glow">
             <Scale className="w-3.5 h-3.5 text-[#ECCF9B] shrink-0" />
             <span className="font-cinzel text-[11px] tracking-[0.24em] font-bold text-[#FAF8F5]">
               Mtimkulu &amp; Madungandaba Attorneys
@@ -74,17 +79,17 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
         </motion.div>
 
         {/* Main Grid: Left Grand Editorial Typography, Right Chambers Docket Dossier */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+        <div className="hero-content-grid grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
           
           {/* Left Column: Prestigious Statement & Legal Mastership */}
-          <div className="lg:col-span-7 space-y-8">
+          <div className="hero-copy lg:col-span-7 space-y-8">
             
             {/* Judicial Maxim & Act Ribbon */}
             <motion.div
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="inline-flex items-center space-x-2.5 px-3.5 py-1 rounded-full bg-[#152033]/90 border border-[#C29B58]/40 text-[10.5px] font-cinzel tracking-[0.28em] text-[#ECCF9B] uppercase shadow-sm"
+              className="hero-kicker inline-flex items-center space-x-2.5 px-3.5 py-1 rounded-full bg-[#152033]/90 border border-[#C29B58]/40 text-[10.5px] font-cinzel tracking-[0.28em] text-[#ECCF9B] uppercase shadow-sm"
             >
               <Sparkles className="w-3 h-3 text-[#ECCF9B]" />
               <span className="font-bold">Iustitia · Integritas · Auctoritas</span>
@@ -99,7 +104,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                 delay={0.15}
                 staggerSpeed={0.024}
                 cursorColor="#ECCF9B"
-                className="font-serif-editorial text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-normal leading-[1.04] tracking-tight text-[#FAF8F5]"
+                className="font-serif-editorial text-[clamp(3.1rem,6.4vw,5.45rem)] font-normal leading-[0.98] tracking-[-0.035em] text-[#FAF8F5] text-balance"
                 segments={[
                   { text: "Definitive counsel for \n" },
                   { text: "moments that " },
@@ -116,7 +121,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-base sm:text-lg text-[#CBD5E1] font-sans font-light leading-relaxed max-w-2xl"
+              className="hero-lede text-base sm:text-lg text-[#CBD5E1] font-sans font-light leading-relaxed max-w-2xl"
             >
               From high-stakes commercial litigation and executive labour restructuring to public tender review and generational estate governance, M&amp;M Legal applies rigorous statutory authority and strategic litigation foresight.
             </motion.p>
@@ -126,11 +131,11 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
+              className="hero-actions pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4"
             >
               <button
                 onClick={() => onOpenIntake()}
-                className="px-8 py-4 rounded-full bg-gold-metallic hover:bg-gold-metallic-subtle text-[#070B12] font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] transition-all duration-300 shadow-gold-glow shadow-gold-glow-hover flex items-center justify-center space-x-2.5 active:scale-95 group cursor-pointer border border-[#FFF8EC]/60"
+                className="hero-primary-cta px-8 py-4 rounded-full bg-gold-metallic hover:bg-gold-metallic-subtle text-[#070B12] font-sans font-bold text-xs sm:text-sm uppercase tracking-[0.18em] transition-all duration-300 shadow-gold-glow shadow-gold-glow-hover flex items-center justify-center space-x-2.5 active:scale-95 group cursor-pointer border border-[#FFF8EC]/60"
               >
                 <span>Book Legal Consultation</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -144,7 +149,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                     transitionToSection('practice-areas');
                   }
                 }}
-                className="px-7 py-4 rounded-full bg-[#152033]/90 hover:bg-[#1D2B44] text-[#FAF8F5] font-sans font-medium text-xs sm:text-sm uppercase tracking-[0.15em] border border-[#C29B58]/40 hover:border-[#ECCF9B] transition-all duration-300 shadow-luxury flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
+                className="hero-secondary-cta px-7 py-4 rounded-full bg-[#152033]/90 hover:bg-[#1D2B44] text-[#FAF8F5] font-sans font-medium text-xs sm:text-sm uppercase tracking-[0.15em] border border-[#C29B58]/40 hover:border-[#ECCF9B] transition-all duration-300 shadow-luxury flex items-center justify-center space-x-2 active:scale-95 cursor-pointer"
               >
                 <span>Explore Practice Dossiers</span>
                 <ChevronRight className="w-4 h-4 text-[#ECCF9B]" />
@@ -156,9 +161,9 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="pt-6 border-t border-[#222E42]/80 grid grid-cols-2 sm:grid-cols-4 gap-4"
+              className="hero-metrics pt-6 border-t border-[#222E42]/80 grid grid-cols-2 sm:grid-cols-4 gap-4"
             >
-              <div className="p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
+              <div className="hero-metric p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
                 <span className="font-serif-editorial text-2xl sm:text-3xl font-bold text-gold-bright-gradient block">
                   R1.8B+
                 </span>
@@ -167,7 +172,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                 </span>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
+              <div className="hero-metric p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
                 <span className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#FAF8F5] block">
                   100%
                 </span>
@@ -176,7 +181,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                 </span>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
+              <div className="hero-metric p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
                 <span className="font-serif-editorial text-2xl sm:text-3xl font-bold text-gold-bright-gradient block">
                   6 Core
                 </span>
@@ -185,7 +190,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                 </span>
               </div>
 
-              <div className="p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
+              <div className="hero-metric p-3 rounded-2xl bg-[#111A29]/70 border border-[#C29B58]/25 space-y-1">
                 <span className="font-serif-editorial text-2xl sm:text-3xl font-bold text-[#FAF8F5] block">
                   24hr
                 </span>
@@ -202,7 +207,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            className="lg:col-span-5"
+            className="hero-docket-wrap lg:col-span-5"
           >
             <TiltCard
               tiltAngle={5}
@@ -210,7 +215,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
               scaleOnHover={1.012}
               className="w-full rounded-3xl"
             >
-              <div className="bg-gradient-to-b from-[#131C2C] via-[#0E1624] to-[#070B12] border border-[#C29B58]/45 rounded-3xl p-6 sm:p-8 relative shadow-dark-luxury-elevated backdrop-blur-md corner-flourish">
+              <div className="hero-docket-card bg-gradient-to-b from-[#131C2C] via-[#0E1624] to-[#070B12] border border-[#C29B58]/45 rounded-3xl p-6 sm:p-8 relative shadow-dark-luxury-elevated backdrop-blur-md corner-flourish">
                 
                 {/* 24K Gold Top Accent Specular Line */}
                 <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#ECCF9B] to-transparent" />
@@ -277,7 +282,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                       <button
                         key={item.title}
                         onClick={() => onOpenIntake(item.catKey)}
-                        className="w-full text-left p-3.5 sm:p-4 rounded-2xl bg-[#152033]/40 hover:bg-[#152033]/90 border border-[#222E42] hover:border-[#C29B58]/60 transition-all duration-300 group flex items-start space-x-3.5 shadow-luxury-sm hover:shadow-luxury"
+                        className="hero-docket-item w-full text-left p-3.5 sm:p-4 rounded-2xl bg-[#152033]/40 hover:bg-[#152033]/90 border border-[#222E42] hover:border-[#C29B58]/60 transition-all duration-300 group flex items-start space-x-3.5 shadow-luxury-sm hover:shadow-luxury"
                       >
                         <div className="w-8 h-8 rounded-xl bg-[#070B12] border border-[#222E42] group-hover:border-[#C29B58]/60 flex items-center justify-center text-[#ECCF9B] shrink-0 mt-0.5 transition-colors font-cinzel text-xs font-bold">
                           {item.roman}

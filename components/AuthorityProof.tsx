@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
 import TypewriterHeading from './TypewriterHeading';
 import {
@@ -18,6 +19,7 @@ import {
   ArrowRight,
   Gavel
 } from 'lucide-react';
+import { EDITORIAL_MEDIA } from '../data/editorialMedia';
 
 export default function AuthorityProof() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -214,6 +216,20 @@ export default function AuthorityProof() {
           transition={{ duration: 0.75, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           className="bg-gradient-to-r from-[#070B12] via-[#0E1624] to-[#070B12] text-[#FAF8F5] border border-[#C29B58]/50 rounded-3xl p-8 sm:p-14 flex flex-col lg:flex-row items-center justify-between gap-10 shadow-dark-luxury-elevated relative overflow-hidden corner-flourish"
         >
+          <div className="editorial-image-frame authority-media relative h-48 lg:h-64 w-full lg:w-72 shrink-0 rounded-2xl border border-[#C29B58]/35">
+            <Image
+              src={EDITORIAL_MEDIA.authority.src}
+              alt={EDITORIAL_MEDIA.authority.alt}
+              fill
+              sizes="(max-width: 1024px) 100vw, 22rem"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#070B12]/85 via-[#070B12]/20 to-transparent" aria-hidden="true" />
+            <span className="absolute inset-x-4 bottom-3 z-20 text-[10px] font-cinzel uppercase tracking-[0.18em] text-[#FFF8EC]">
+              Chambers, considered
+            </span>
+          </div>
+
           <div className="space-y-4 max-w-2xl text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 text-[10px] font-cinzel uppercase tracking-[0.22em] text-[#ECCF9B] font-bold px-3.5 py-1.5 rounded-full bg-[#182438] border border-[#C29B58]/40 shadow-xs">
               <MapPin className="w-3.5 h-3.5 text-[#ECCF9B]" />

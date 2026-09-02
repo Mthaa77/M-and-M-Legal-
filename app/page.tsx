@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import HeroCinematic from '../components/HeroCinematic';
+import LiveTicker from '../components/LiveTicker';
 import PositioningSection from '../components/PositioningSection';
 import QuoteOfTheDay from '../components/QuoteOfTheDay';
 import SignatureScrollStory from '../components/SignatureScrollStory';
@@ -39,7 +40,8 @@ export default function Home() {
 
   return (
     <CurtainProvider>
-      <main className="min-h-screen bg-[#FAF8F5] text-[#15181E] selection:bg-[#A8864D] selection:text-white relative font-sans">
+      <a href="#main-content" className="skip-link">Skip to content</a>
+      <main id="main-content" className="min-h-screen bg-[#FAF8F5] text-[#15181E] selection:bg-[#A8864D] selection:text-white relative font-sans">
         
         {/* Theatrical Chambers Act Quick-Jump Navigator */}
         <ChambersActNavigator />
@@ -52,7 +54,10 @@ export default function Home() {
           onOpenIntake={handleOpenIntake}
         />
 
-        {/* 3. "Law That Understands the Wider Picture" Positioning */}
+        {/* 3. Live chambers bulletin and practice ticker */}
+        <LiveTicker />
+
+        {/* 4. "Law That Understands the Wider Picture" Positioning */}
         <PositioningSection />
 
         {/* 4. Signature Narrative: 4-Stage Matter Trajectory */}

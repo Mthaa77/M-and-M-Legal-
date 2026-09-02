@@ -1,5 +1,28 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import { Allura, Cormorant_Garamond, Manrope } from 'next/font/google';
+
+const signatureFont = Allura({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-signature',
+  display: 'swap',
+});
+
+const displayFont = Cormorant_Garamond({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
+  style: ['normal', 'italic'],
+  variable: '--font-display',
+  display: 'swap',
+});
+
+const workhorseFont = Manrope({
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800'],
+  variable: '--font-body',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: 'M&M Legal | Mtimkulu & Madungandaba Attorneys | Pretoria',
@@ -77,14 +100,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className={`${signatureFont.variable} ${displayFont.variable} ${workhorseFont.variable} scroll-smooth`}>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="bg-[#FAF8F5] text-[#15181E] antialiased min-h-screen selection:bg-[#A8864D] selection:text-white relative" suppressHydrationWarning>
+      <body className={`${workhorseFont.className} bg-[#FAF8F5] text-[#15181E] antialiased min-h-screen selection:bg-[#A8864D] selection:text-white relative`} suppressHydrationWarning>
         {/* Tactile Parchment Paper Grain Overlay */}
         <div className="parchment-grain-overlay" aria-hidden="true" />
         {children}

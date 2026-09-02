@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import TiltCard from './TiltCard';
 import TypewriterHeading from './TypewriterHeading';
@@ -19,6 +20,7 @@ import {
   Clock,
   ShieldCheck
 } from 'lucide-react';
+import { EDITORIAL_MEDIA } from '../data/editorialMedia';
 
 interface PracticeAreaGatewayProps {
   onOpenIntake: (category?: string) => void;
@@ -218,6 +220,20 @@ export default function PracticeAreaGateway({ onOpenIntake, onSelectPractice }: 
               transition={{ duration: 0.25 }}
               className="bg-[#FFFFFF] border border-[#C29B58]/35 rounded-3xl p-8 sm:p-14 shadow-luxury relative corner-flourish"
             >
+              <div className="editorial-image-frame practice-media relative h-40 sm:h-52 mb-10 rounded-2xl border border-[#C29B58]/30">
+                <Image
+                  src={EDITORIAL_MEDIA.practice.src}
+                  alt={EDITORIAL_MEDIA.practice.alt}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 78vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#070B12]/85 via-[#070B12]/25 to-transparent" aria-hidden="true" />
+                <span className="absolute inset-x-5 bottom-4 z-20 text-[10px] font-cinzel uppercase tracking-[0.2em] text-[#FFF8EC]">
+                  Matter desk · strategic review
+                </span>
+              </div>
+
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 {/* Left Briefing Column */}

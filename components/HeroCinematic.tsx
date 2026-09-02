@@ -1,10 +1,12 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { motion } from 'motion/react';
 import TiltCard from './TiltCard';
 import TypewriterHeading from './TypewriterHeading';
 import { useCurtain } from './CurtainTransition';
+import { EDITORIAL_MEDIA } from '../data/editorialMedia';
 import {
   ArrowRight,
   Phone,
@@ -219,6 +221,23 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                 
                 {/* 24K Gold Top Accent Specular Line */}
                 <div className="absolute top-0 left-8 right-8 h-[2px] bg-gradient-to-r from-transparent via-[#ECCF9B] to-transparent" />
+
+                {/* Editorial image plate */}
+                <div className="editorial-image-frame hero-docket-media relative h-40 sm:h-44 mb-6 rounded-2xl border border-[#C29B58]/30">
+                  <Image
+                    src={EDITORIAL_MEDIA.hero.src}
+                    alt={EDITORIAL_MEDIA.hero.alt}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 38vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#070B12]/90 via-[#070B12]/20 to-transparent" aria-hidden="true" />
+                  <div className="absolute inset-x-4 bottom-3 z-20 flex items-center justify-between gap-3 text-[10px] font-cinzel uppercase tracking-[0.18em] text-[#FFF8EC]">
+                    <span>Counsel desk</span>
+                    <span className="text-[#ECCF9B]">Strategy in focus</span>
+                  </div>
+                </div>
 
                 {/* Card Header with Firm Emblems */}
                 <div className="flex items-center justify-between pb-5 border-b border-[#222E42]">

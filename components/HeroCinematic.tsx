@@ -222,7 +222,7 @@ export default function HeroCinematic({ onOpenIntake, onExplorePractices }: Hero
                       <Gavel className="w-4 h-4 text-[#ECCF9B]" />
                     </div>
                     <div>
-                      <span className="text-[10px] font-cinzel tracking-[0.24em] uppercase text-[#ECCF9B] block font-bold">
+                      <span className="font-signature text-2xl sm:text-3xl leading-none normal-case tracking-normal text-[#ECCF9B] block font-normal">
                         Chambers Docket
                       </span>
                       <span className="font-serif-editorial text-xl font-bold text-[#FAF8F5]">

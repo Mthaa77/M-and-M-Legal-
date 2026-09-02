@@ -71,7 +71,7 @@ export default function PositioningSection() {
             <circle cx="200" cy="200" r="190" fill="none" stroke="currentColor" strokeWidth="3" strokeDasharray="6 6" />
             <circle cx="200" cy="200" r="170" fill="none" stroke="currentColor" strokeWidth="1.5" />
             <path d="M200 40 L200 360 M120 100 L280 100 M120 100 L90 180 M280 100 L310 180 M80 180 Q105 210 130 180 Z M270 180 Q295 210 320 180 Z M170 360 L230 360 M180 340 L220 340" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
-            <text x="200" y="315" textAnchor="middle" fontFamily="Cinzel, serif" fontSize="22" letterSpacing="6" fill="currentColor">JUSTITIA</text>
+            <text x="200" y="315" textAnchor="middle" fontFamily="Manrope, sans-serif" fontSize="22" letterSpacing="6" fill="currentColor">JUSTITIA</text>
           </svg>
         </motion.div>
 

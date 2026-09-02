@@ -1,10 +1,12 @@
 'use client';
 
 import React, { useState, useRef } from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'motion/react';
 import TiltCard from './TiltCard';
 import TypewriterHeading from './TypewriterHeading';
 import { Scale, Quote, ArrowRight, CheckCircle2, ShieldCheck, Landmark, Sparkles } from 'lucide-react';
+import { EDITORIAL_MEDIA } from '../data/editorialMedia';
 
 export default function PositioningSection() {
   const [activePillar, setActivePillar] = useState(0);
@@ -186,6 +188,20 @@ export default function PositioningSection() {
                 <div className="absolute top-0 left-6 right-6 h-[1.5px] bg-gradient-to-r from-transparent via-[#ECCF9B]/80 to-transparent" />
                 
                 <div className="relative z-10 space-y-6">
+                  <div className="editorial-image-frame positioning-media relative h-40 sm:h-48 rounded-2xl border border-[#C29B58]/30">
+                    <Image
+                      src={EDITORIAL_MEDIA.positioning.src}
+                      alt={EDITORIAL_MEDIA.positioning.alt}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 38vw"
+                      className="object-cover"
+                    />
+                    <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#070B12]/85 via-transparent to-[#070B12]/10" aria-hidden="true" />
+                    <span className="absolute inset-x-4 bottom-3 z-20 text-[10px] font-cinzel uppercase tracking-[0.18em] text-[#FFF8EC]">
+                      The library of counsel
+                    </span>
+                  </div>
+
                   <div className="w-12 h-12 rounded-2xl border border-[#C29B58]/60 flex items-center justify-center text-[#ECCF9B] bg-gradient-to-br from-[#1A263B] to-[#0E1624] shadow-gold-glow">
                     <Quote className="w-5 h-5 text-[#ECCF9B]" />
                   </div>

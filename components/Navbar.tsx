@@ -96,13 +96,15 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
 
       {/* Main Luxury Navigation Bar */}
       <header
-        className={`sticky top-0 z-40 nav-surface transition-all duration-300 ${
+        className={`sticky top-0 z-40 nav-floating-host transition-all duration-300 ${
           scrolled
-            ? 'nav-surface--scrolled py-3.5'
-            : 'nav-surface--top py-4.5'
+            ? 'nav-floating-host--scrolled'
+            : 'nav-floating-host--top'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
+        <div className={`nav-floating-bar nav-surface ${
+          scrolled ? 'nav-floating-bar--scrolled' : 'nav-floating-bar--top'
+        } max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10`}>
           
           {/* Law Firm Monogram & Title */}
           <button
@@ -247,13 +249,13 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
           <div className="flex lg:hidden items-center space-x-3">
             <button
               onClick={() => onOpenIntake()}
-              className="px-4 py-2 rounded-full bg-gradient-to-r from-[#101724] to-[#172235] text-[#FAF8F5] text-[11px] font-semibold uppercase tracking-wider border border-[#B89355]/70 shadow-luxury-sm"
+              className="min-h-[44px] px-4 py-2 rounded-full bg-gradient-to-r from-[#101724] to-[#172235] text-[#FAF8F5] text-[11px] font-semibold uppercase tracking-wider border border-[#B89355]/70 shadow-luxury-sm"
             >
               Book
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-2xl text-[#101724] hover:bg-[#F4EFE6] border border-[#E5DFD4] shadow-luxury-sm"
+              className="min-h-[44px] min-w-[44px] p-2.5 rounded-2xl text-[#101724] hover:bg-[#F4EFE6] border border-[#E5DFD4] shadow-luxury-sm"
               aria-expanded={mobileMenuOpen}
               aria-controls="mobile-navigation"
               aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
@@ -274,7 +276,7 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
               id="mobile-navigation"
               role="region"
               aria-label="Mobile navigation"
-              className="mobile-nav-panel lg:hidden bg-[#FAF8F5] border-b border-[#E5DFD4] px-5 py-6 overflow-hidden rounded-b-3xl shadow-luxury"
+              className="nav-floating-mobile-panel mobile-nav-panel lg:hidden bg-[#FAF8F5] border border-[#E5DFD4] px-5 py-6 overflow-hidden rounded-3xl shadow-luxury"
             >
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link) => (

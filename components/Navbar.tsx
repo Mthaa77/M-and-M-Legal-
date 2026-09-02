@@ -51,7 +51,7 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
   return (
     <>
       {/* Top Heritage Utility Bar */}
-      <div className="bg-[#070B12] text-[#D8D0C3] text-xs border-b border-[#222E42] py-2.5 px-4 sm:px-8 relative z-50">
+      <div className="nav-utility-bar bg-[#070B12] text-[#D8D0C3] text-xs border-b border-[#222E42] py-2.5 px-4 sm:px-8 relative z-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] font-sans tracking-wide">
           
           <div className="flex items-center space-x-4">
@@ -96,20 +96,20 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
 
       {/* Main Luxury Navigation Bar */}
       <header
-        className={`sticky top-0 z-40 transition-all duration-300 ${
+        className={`sticky top-0 z-40 nav-surface transition-all duration-300 ${
           scrolled
-            ? 'bg-[#FAF8F5]/94 backdrop-blur-md shadow-luxury border-b border-[#E5DFD4] py-3.5'
-            : 'bg-[#FAF8F5]/98 backdrop-blur-sm border-b border-[#E5DFD4]/80 py-4.5'
+            ? 'nav-surface--scrolled py-3.5'
+            : 'nav-surface--top py-4.5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between relative z-10">
           
           {/* Law Firm Monogram & Title */}
           <button
             onClick={() => transitionToSection('hero')}
-            className="flex items-center space-x-3.5 group cursor-pointer text-left"
+            className="nav-brand flex items-center space-x-3.5 group cursor-pointer text-left"
           >
-            <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0E1624] via-[#152033] to-[#070B12] border border-[#C29B58]/60 flex items-center justify-center transition-all duration-300 group-hover:border-[#ECCF9B] shadow-luxury group-hover:shadow-gold-glow">
+            <div className="nav-brand-mark w-11 h-11 rounded-2xl bg-gradient-to-br from-[#0E1624] via-[#152033] to-[#070B12] border border-[#C29B58]/60 flex items-center justify-center transition-all duration-300 group-hover:border-[#ECCF9B] shadow-luxury group-hover:shadow-gold-glow">
               <span className="font-serif-editorial text-lg font-bold text-[#ECCF9B] tracking-wider">
                 M&amp;M
               </span>
@@ -125,7 +125,7 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
           </button>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center space-x-7 relative">
+          <nav aria-label="Primary navigation" className="nav-main-links hidden lg:flex items-center space-x-7 relative">
             {navLinks.map((link) => {
               const isActive = activeSectionId === link.id;
 
@@ -136,9 +136,12 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
                     className="relative"
                     onMouseEnter={() => setPracticeDropdownOpen(true)}
                     onMouseLeave={() => setPracticeDropdownOpen(false)}
+                    onFocus={() => setPracticeDropdownOpen(true)}
                   >
                     <button
                       onClick={() => transitionToSection(link.href)}
+                      aria-haspopup="menu"
+                      aria-expanded={practiceDropdownOpen}
                       className={`text-xs font-semibold uppercase tracking-[0.16em] py-2 inline-flex items-center space-x-1 group cursor-pointer transition-colors ${
                         isActive ? 'text-[#82622B]' : 'text-[#3A4556] hover:text-[#82622B]'
                       }`}
@@ -157,7 +160,7 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
                           animate={{ opacity: 1, y: 0, scale: 1 }}
                           exit={{ opacity: 0, y: 8, scale: 0.98 }}
                           transition={{ duration: 0.2 }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 w-[510px] bg-[#FFFFFF] border border-[#C29B58]/35 rounded-3xl p-6 shadow-luxury-elevated mt-2 z-50 corner-flourish"
+                          className="nav-dropdown-panel absolute top-full left-1/2 -translate-x-1/2 w-[510px] bg-[#FFFFFF] border border-[#C29B58]/35 rounded-3xl p-6 shadow-luxury-elevated mt-2 z-50 corner-flourish"
                         >
                           <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#ECE6DB]">
                             <span className="text-[10px] font-cinzel font-bold uppercase tracking-[0.2em] text-[#82622B]">
@@ -233,7 +236,7 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
           <div className="hidden lg:flex items-center space-x-4">
             <button
               onClick={() => onOpenIntake()}
-              className="px-7 py-3 rounded-full bg-gradient-to-r from-[#0E1624] via-[#152033] to-[#070B12] hover:from-[#152033] hover:to-[#1D2B44] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.16em] border border-[#C29B58]/70 hover:border-[#ECCF9B] shadow-luxury shadow-luxury-hover transition-all duration-300 flex items-center space-x-2 active:scale-95 cursor-pointer"
+              className="nav-consultation-cta px-7 py-3 rounded-full bg-gradient-to-r from-[#0E1624] via-[#152033] to-[#070B12] hover:from-[#152033] hover:to-[#1D2B44] text-[#FAF8F5] text-xs font-bold uppercase tracking-[0.16em] border border-[#C29B58]/70 hover:border-[#ECCF9B] shadow-luxury shadow-luxury-hover transition-all duration-300 flex items-center space-x-2 active:scale-95 cursor-pointer"
             >
               <span>Book Consultation</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#ECCF9B]" />
@@ -251,7 +254,9 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2.5 rounded-2xl text-[#101724] hover:bg-[#F4EFE6] border border-[#E5DFD4] shadow-luxury-sm"
-              aria-label="Toggle navigation menu"
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={mobileMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -266,7 +271,10 @@ export default function Navbar({ onOpenIntake }: NavbarProps) {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="lg:hidden bg-[#FAF8F5] border-b border-[#E5DFD4] px-5 py-6 overflow-hidden rounded-b-3xl shadow-luxury"
+              id="mobile-navigation"
+              role="region"
+              aria-label="Mobile navigation"
+              className="mobile-nav-panel lg:hidden bg-[#FAF8F5] border-b border-[#E5DFD4] px-5 py-6 overflow-hidden rounded-b-3xl shadow-luxury"
             >
               <div className="flex flex-col space-y-4">
                 {navLinks.map((link) => (

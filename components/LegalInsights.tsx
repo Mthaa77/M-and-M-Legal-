@@ -1,8 +1,10 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { LEGAL_INSIGHTS, LegalInsight } from '../data/legalData';
+import { EDITORIAL_MEDIA } from '../data/editorialMedia';
 import TiltCard from './TiltCard';
 import TypewriterHeading from './TypewriterHeading';
 import {
@@ -95,6 +97,20 @@ export default function LegalInsights({ onOpenIntake }: LegalInsightsProps) {
               className="w-full rounded-3xl"
             >
               <div className="bg-[#FFFFFF] border border-[#C29B58]/35 rounded-3xl p-8 sm:p-12 shadow-luxury space-y-6 relative corner-flourish">
+                <div className="editorial-image-frame legal-insight-media relative h-48 sm:h-64 -mx-8 sm:-mx-12 -mt-8 sm:-mt-12 mb-6 sm:mb-8 rounded-t-3xl border-b border-[#C29B58]/30">
+                  <Image
+                    src={EDITORIAL_MEDIA.insights.src}
+                    alt={EDITORIAL_MEDIA.insights.alt}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 58vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#070B12]/75 via-transparent to-[#070B12]/10" aria-hidden="true" />
+                  <span className="absolute inset-x-5 bottom-4 z-20 text-[10px] font-cinzel uppercase tracking-[0.2em] text-[#FFF8EC]">
+                    Chambers Gazette · reading room
+                  </span>
+                </div>
+
                 <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
                   <span className="uppercase tracking-widest font-cinzel font-bold text-[10px] text-[#82622B] px-3.5 py-1 rounded-full bg-[#F4EFE6] border border-[#C29B58]/35 shadow-xs">
                     FEATURED PERSPECTIVE · {leadArticle.category}

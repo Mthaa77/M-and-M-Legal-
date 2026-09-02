@@ -1,0 +1,6 @@
+{
+  "name": "M&M Legal",
+  "description": "M&M Legal (Mtimkulu & Madungandaba Attorneys) is a premier South African law firm in Pretoria providing strategic counsel across Commercial Litigation, Labour Law, Public Procurement, Property & Conveyancing, Trusts & Estates, and Family Law.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
